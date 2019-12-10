@@ -17,3 +17,4 @@ samples, guidance on mobile development, and a full API reference.
 =======
 for flutter to auto install apk(android)
 
+[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
