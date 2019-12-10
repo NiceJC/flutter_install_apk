@@ -1,8 +1,10 @@
 name: flutter_install_apk
-description: A  flutter plugin project for install APK.
-version: 0.0.1
+description: A  flutter plugin project for install APK. for android ,you could use this plugin
+ to install apk,for ios ,you could shoud go app store.
+
+version: 0.1.0
 author: wjc <626063626@qq.com>
-homepage: https://github.com/positiveBOY
+homepage: https://github.com/positiveBOY/flutter_install_apk
 
 environment:
   sdk: ">=2.1.0 <3.0.0"

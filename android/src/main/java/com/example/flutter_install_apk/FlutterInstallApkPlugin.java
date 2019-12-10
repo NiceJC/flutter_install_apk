@@ -41,6 +41,7 @@ public class FlutterInstallApkPlugin implements MethodCallHandler {
     if (call.method.equals("getPlatformVersion")) {
       result.success("Android " + android.os.Build.VERSION.RELEASE);
     } else if (call.method.equals("installApk")) {
+      ///接收call传入的apk包路径
       final String path = (String) call.arguments;
       Log.d(TAG, "installApk path is " + path);
       File file = new File(path);
@@ -58,12 +59,14 @@ public class FlutterInstallApkPlugin implements MethodCallHandler {
 
     Uri apkUri = null;
     if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
+      ///高版本使用FileProvider
       apkUri = FileProvider.getUriForFile(context, context.getPackageName() + ".fileprovider", apkFile);
       installApkIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
     } else {
       apkUri = Uri.fromFile(apkFile);
     }
     installApkIntent.setDataAndType(apkUri, "application/vnd.android.package-archive");
+
 
     if (context.getPackageManager().queryIntentActivities(installApkIntent, 0).size() > 0) {
       context.startActivity(installApkIntent);

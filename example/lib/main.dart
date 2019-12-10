@@ -53,4 +53,30 @@ class _MyAppState extends State<MyApp> {
       ),
     );
   }
+
+  //检查版本
+  _checkVersion(){
+    PackageInfo.fromPlatform().then((info){
+      String localVersion = info.version;
+
+      //需要更新
+      bool  needUpdate = UpdateUtil.compareVersion(localVersion, res.data.versionName)==-1;
+
+      if(needUpdate){
+        //需要强制更新
+        bool  needForce =res.data.mandatoryVersionName==null?false: UpdateUtil.compareVersion(localVersion, res.data.mandatoryVersionName)==-1;
+
+        if(needForce){
+          UpdateUtil.showUpdateDialog(context, res.data.versionName, res.data.updateInfo, res.data.downloadUrl,true);
+        }else{
+          UpdateUtil.showUpdateDialog(context, res.data.versionName, res.data.updateInfo, res.data.downloadUrl,false);
+        }
+
+      }else{
+        //当前是最新版本
+
+      }
+
+    });
+  }
 }

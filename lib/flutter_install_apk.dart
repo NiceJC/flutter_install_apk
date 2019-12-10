@@ -16,6 +16,3 @@ class FlutterInstallApk {
     return isSuccess;
   }
 }
-
-
-
