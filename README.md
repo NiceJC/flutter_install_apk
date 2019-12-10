@@ -1,5 +1,5 @@
 # flutter_install_apk
-<<<<<<< HEAD
+
 
 A new flutter plugin project.
 
